@@ -2,15 +2,19 @@
   "name": "code-award",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "run-p dev:* watch",
+    "dev:vite": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "lint": "yarn eslint --cache --fix .",
+    "lint": "yarn eslint --cache --ext ts,tsx --fix src",
     "format": "yarn prettier --write --loglevel warn .",
     "type-check": "tsc",
     "gen:theme-typings": "chakra-cli tokens src/theme.ts",
     "postinstall": "yarn run gen:theme-typings",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "watch": "run-p watch:*",
+    "watch:lint": "watch \"yarn lint\" src",
+    "watch:type-check": "yarn type-check --watch --preserveWatchOutput"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.7",
@@ -19,7 +23,8 @@
     "focus-visible": "^5.2.0",
     "framer-motion": "^4",
     "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^1.5.0",
