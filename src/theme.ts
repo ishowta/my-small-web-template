@@ -5,7 +5,6 @@ import {
   ThemeOverride,
 } from "@chakra-ui/react";
 import { motion, MotionProps } from "framer-motion";
-import { HTMLProps } from "react";
 
 const extension: ThemeOverride = {
   colors: {
