@@ -2,9 +2,44 @@ import { Box, Button, Center, Link, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import logo from "../images/logo.svg";
 import { Image } from "../theme";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  gql,
+} from "@apollo/client";
+import { GetUser } from "./__generated__/GetUser";
+
+const client = new ApolloClient({
+  uri: "https://api.github.com/graphql",
+  cache: new InMemoryCache(),
+  headers: {
+    Authorization: `Bearer ${
+      import.meta.env.VITE_GITHUB_PERSONAL_ACCESS_TOKEN
+    }`,
+  },
+});
 
 export const Index = () => {
+  return (
+    <ApolloProvider client={client}>
+      <IndexInner />
+    </ApolloProvider>
+  );
+};
+
+const IndexInner = () => {
   const [count, setCount] = useState(0);
+  const { data } = useQuery<GetUser>(gql`
+    query GetUser {
+      user(login: "ishowta") {
+        name
+        company
+        createdAt
+      }
+    }
+  `);
 
   return (
     <Box textAlign="center">
@@ -22,6 +57,7 @@ export const Index = () => {
           }}
         />
         <Text>Hello Vite + React!</Text>
+        <Text>User: {data?.user?.name ?? "・・・"}</Text>
         <Button onClick={() => setCount((count) => count + 1)}>
           count is: {count}
         </Button>
