@@ -1,3 +1,3 @@
-# my-website-template
+# my-small-web-template
 
 Template for small web services.

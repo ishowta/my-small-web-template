@@ -1,5 +1,5 @@
 {
-  "name": "code-award",
+  "name": "my-small-web-template",
   "version": "0.0.0",
   "scripts": {
     "dev": "run-p dev:* watch",
