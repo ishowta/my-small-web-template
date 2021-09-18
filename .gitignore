@@ -3,6 +3,7 @@
 dist
 dist-ssr
 *.local
+/public
 
 # Logs
 logs
