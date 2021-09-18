@@ -3,6 +3,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Index } from "./pages";
 import { theme } from "./theme";
 import { css, Global } from "@emotion/react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const GlobalStyles = css`
   /*
@@ -19,7 +20,13 @@ export const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <Global styles={GlobalStyles} />
-      <Index />
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Index />
+          </Route>
+        </Switch>
+      </Router>
     </ChakraProvider>
   );
 };
