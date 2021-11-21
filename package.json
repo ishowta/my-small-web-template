@@ -6,7 +6,7 @@
     "dev:vite": "vite",
     "build": "tsc && vite build --outDir public",
     "serve": "vite preview",
-    "deploy": "yarn build && firebase deploy --only hosting,storage",
+    "deploy": "yarn build && firebase deploy --only hosting,firestore",
     "lint": "yarn eslint --cache --ext ts,tsx --fix src",
     "format": "yarn prettier --write --loglevel warn .",
     "type-check": "tsc",
@@ -29,6 +29,7 @@
     "framer-motion": "^4",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
+    "react-firebase-hooks": "^4.0.1",
     "react-router-dom": "^5.3.0",
     "watch": "^1.0.2"
   },

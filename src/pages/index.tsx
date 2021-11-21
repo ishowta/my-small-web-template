@@ -1,10 +1,10 @@
-import { Box, Button, Center, Link, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
-import logo from "../images/logo.svg";
-import { Image } from "../theme";
+import { Box, Button, Center, Link, Text } from '@chakra-ui/react'
+import React, { useState } from 'react'
+import logo from '../images/logo.svg'
+import { Image } from '../theme'
 
 export const Index = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <Box textAlign="center">
@@ -17,7 +17,7 @@ export const Index = () => {
           animate={{ rotate: 360 }}
           transition={{
             duration: 3,
-            ease: "linear",
+            ease: 'linear',
             repeat: Infinity,
           }}
         />
@@ -32,7 +32,7 @@ export const Index = () => {
           <Link color="brand.300" href="https://reactjs.org" isExternal>
             Learn React
           </Link>
-          {" | "}
+          {' | '}
           <Link
             color="brand.300"
             href="https://vitejs.dev/guide/features.html"
@@ -43,5 +43,5 @@ export const Index = () => {
         </Text>
       </Center>
     </Box>
-  );
-};
+  )
+}
